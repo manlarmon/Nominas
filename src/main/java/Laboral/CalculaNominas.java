@@ -8,7 +8,6 @@ public class CalculaNominas {
     /**
      * El método principal de la aplicación.
      *
-     * @param args Los argumentos de la línea de comandos (no se utilizan en este caso).
      */
     public static void main(String[] args) {
         try {
