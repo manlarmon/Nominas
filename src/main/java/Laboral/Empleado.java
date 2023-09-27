@@ -22,13 +22,15 @@ public class Empleado extends Persona {
 	 * @param anyos     Los años trabajados del empleado.
 	 * @throws DatosNoCorrectosException Si los datos del empleado no son correctos.
 	 */
-	public Empleado(String nombre, String dni, char sexo, int categoria, int anyos) throws DatosNoCorrectosException {
+	public Empleado(String nombre, String dni, char sexo, int categoria, double anyos) throws DatosNoCorrectosException {
 		super(nombre, dni, sexo);
 
-		if (categoria <= 0 || categoria > 10 || anyos < 0) {
-			throw new DatosNoCorrectosException("Los datos del empleado no son correctos");
+		if (categoria <= 0 || categoria > 10) {
+			throw new DatosNoCorrectosException("Categoría fuera del rango establecido (1-10)");
 		}
-
+		if (anyos < 0) {
+			throw new DatosNoCorrectosException("Año introducido erróneo, no puede ser negativo");
+		}
 		this.categoria = categoria;
 		this.anyos = anyos;
 	}
@@ -60,26 +62,30 @@ public class Empleado extends Persona {
 	 *
 	 * @param categoria La nueva categoría laboral del empleado.
 	 */
-	public void setCategoria(int categoria) {
-		if (categoria >= 1 && categoria <= 9) {
+	public void setCategoria(int categoria) throws DatosNoCorrectosException {
+		if (categoria >= 1 && categoria <= 10) {
 			this.categoria = categoria;
+		} else {
+			throw new DatosNoCorrectosException("Categoría fuera del rango establecido (1-10)");
+
 		}
 	}
 
-    /**
-     * Incrementa en uno los años de servicio del empleado.
-     */
-    public void incrAnyo() {
-        this.anyos++;
-    }
+	/**
+	 * Incrementa en uno los años de servicio del empleado.
+	 */
+	public void incrAnyo() {
+		this.anyos++;
+	}
 
-    /**
-     * Imprime los detalles del empleado, incluyendo su información personal y laboral.
-     */
-    @Override
-    public void Imprime() {
-        super.Imprime();
-        System.out.println("Sexo: " + this.sexo + "\nCategoria: " + this.categoria +
-                "\nAños de servicio: " + this.anyos);
-    }
+	/**
+	 * Imprime los detalles del empleado, incluyendo su información personal y
+	 * laboral.
+	 */
+	@Override
+	public void Imprime() {
+		super.Imprime();
+		System.out.println("Sexo: " + this.sexo + "\nCategoria: " + this.categoria +
+				"\nAños de servicio: " + this.anyos);
+	}
 }
