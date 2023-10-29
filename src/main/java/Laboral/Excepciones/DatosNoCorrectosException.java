@@ -1,4 +1,4 @@
-package Laboral;
+package Laboral.Excepciones;
 
 /**
  * La excepción DatosNoCorrectosException se lanza cuando se encuentran datos incorrectos

@@ -1,4 +1,4 @@
-package Laboral;
+package Laboral.Clases;
 
 /**
  * La clase Nomina se utiliza para calcular el sueldo de un empleado.

@@ -1,4 +1,6 @@
-package Laboral;
+package Laboral.Clases;
+
+import Laboral.Excepciones.DatosNoCorrectosException;
 
 /**
  * La clase Empleado representa a un empleado con información personal y
@@ -22,7 +24,8 @@ public class Empleado extends Persona {
 	 * @param anyos     Los años trabajados del empleado.
 	 * @throws DatosNoCorrectosException Si los datos del empleado no son correctos.
 	 */
-	public Empleado(String nombre, String dni, char sexo, int categoria, double anyos) throws DatosNoCorrectosException {
+	public Empleado(String nombre, String dni, char sexo, int categoria, double anyos)
+			throws DatosNoCorrectosException {
 		super(nombre, dni, sexo);
 
 		if (categoria <= 0 || categoria > 10) {
@@ -53,8 +56,21 @@ public class Empleado extends Persona {
 	 *
 	 * @return La categoría laboral del empleado.
 	 */
+
 	public int getCategoria() {
 		return categoria;
+	}
+
+	public double getAnyos() {
+		return anyos;
+	}
+
+	public void setAnyos(double anyos) throws DatosNoCorrectosException {
+		if (anyos<0) {
+			throw new DatosNoCorrectosException("Los anyos no pueden ser negativos");
+		}else{
+			this.anyos = anyos;
+		}
 	}
 
 	/**
@@ -84,8 +100,11 @@ public class Empleado extends Persona {
 	 */
 	@Override
 	public void Imprime() {
-		super.Imprime();
-		System.out.println("Sexo: " + this.sexo + "\nCategoria: " + this.categoria +
-				"\nAños de servicio: " + this.anyos);
+		System.out.println("Nombre: " + this.getNombre() + ", DNI: " + this.getDni() + ", Sexo: " + this.getSexo() + ", Categoria: " + this.getCategoria() +
+				", Años de servicio: " + this.getAnyos());
 	}
+
+
+
+	
 }

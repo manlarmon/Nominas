@@ -1,13 +1,13 @@
-package Laboral;
+package Laboral.Clases;
 
 /**
  * La clase Persona representa a una persona con información personal básica.
  */
 public class Persona {
 
-    public String nombre;
-    public String dni;
-    public char sexo;
+    private String nombre;
+    private String dni;
+    private char sexo;
 
     /**
      * Constructor para crear una persona con información completa.
@@ -33,6 +33,18 @@ public class Persona {
         this.sexo = sexo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
     /**
      * Establece el número de DNI de la persona.
      *
@@ -42,13 +54,21 @@ public class Persona {
         this.dni = dni;
     }
 
+    public char getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
     /**
      * Imprime los detalles de la persona, incluyendo su nombre y DNI.
      */
     public void Imprime() {
-        System.out.println("Nombre: " + this.nombre);
-        if (this.dni != null) {
-            System.out.println("DNI: " + this.dni);
-        }
+        System.out.println("Nombre: " + this.nombre + ", DNI: " + this.dni);
     }
+
+
+    
 }
